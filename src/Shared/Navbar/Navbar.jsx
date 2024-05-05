@@ -1,12 +1,29 @@
 // import React from 'react';
 
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+const {user,logOut} = useContext(AuthContext);
+
+const handleLogout = () =>{
+logOut()
+.then(()=>{
+    
+} )
+.catch(error =>console.error(error))
+}
+
 const navitem = <>
 
 <li><NavLink to='/'>Home</NavLink></li>
 <li><NavLink to='/about'>About</NavLink></li>
+{
+    user?.email ? <li><button onClick={handleLogout}>Logout</button></li> :<li><NavLink to='/login'>Login</NavLink></li>
+
+}
+
 </>
 
     return (
