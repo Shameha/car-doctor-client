@@ -1,7 +1,7 @@
 // import React from 'react';
 
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
@@ -20,7 +20,9 @@ const navitem = <>
 <li><NavLink to='/'>Home</NavLink></li>
 <li><NavLink to='/about'>About</NavLink></li>
 {
-    user?.email ? <li><button onClick={handleLogout}>Logout</button></li> :<li><NavLink to='/login'>Login</NavLink></li>
+    user?.email ? <>
+    <li><Link to='/bookings'>My booking</Link></li>
+    <li><button onClick={handleLogout}>Logout</button></li></> :<li><NavLink to='/login'>Login</NavLink></li>
 
 }
 
