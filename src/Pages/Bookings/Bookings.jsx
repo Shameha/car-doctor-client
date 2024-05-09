@@ -9,7 +9,7 @@ const Bookings = () => {
 const {user} = useContext(AuthContext)
 const [booking,setBooking] = useState([])
 
-const url = `http://localhost:5000/bookings?email=${user?.email}`
+const url = `https://car-1ybq83y2b-shamehas-projects.vercel.app/bookings?email=${user?.email}`
 useEffect(()=>{
 // fetch(url)
 // .then(res => res.json())
@@ -23,7 +23,7 @@ axios.get(url,{withCredentials:true})
 const handleDelete = id =>{
     const proceed = confirm('are you sure ?');
     if(proceed){
-fetch(`http://localhost:5000/bookings/${id}`,{
+fetch(`https://car-1ybq83y2b-shamehas-projects.vercel.app/bookings/${id}`,{
     method:'DELETE'
 })
 .then(res => res.json())
@@ -40,7 +40,7 @@ setBooking(remaining)
 }
 
 const handleConform = id =>{
-    fetch(`http://localhost:5000/bookings/${id}`,{
+    fetch(`https://car-1ybq83y2b-shamehas-projects.vercel.app/bookings/${id}`,{
         method:'PATCH',
         headers: {
             'content-type' : 'application/json'
